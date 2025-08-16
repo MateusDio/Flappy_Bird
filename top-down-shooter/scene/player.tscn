@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://c42gqqhkeknin"]
+
+[ext_resource type="Script" uid="uid://cpwshpfwf80s1" path="res://scene/player.gd" id="1_xo3ru"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_xo3ru")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-53, -40)
+scale = Vector2(0.283333, 0.274725)
+color = Color(0.933333, 1, 0, 1)
+polygon = PackedVector2Array(289, 88, 275, 67, 250, 56, 174, 54, 140, 69, 118, 103, 109, 186, 126, 220, 155, 233, 241, 236, 267, 220, 283, 198, 233, 165, 211, 148)
+uv = PackedVector2Array(289, 88, 250, 56, 174, 54, 140, 69, 118, 103, 109, 186, 131.687, 209.18, 155, 233, 241, 236, 283, 198, 233, 165, 211, 148)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-108, -73)
+scale = Vector2(0.363723, 0.274743)
+polygon = PackedVector2Array(376.661, 207.467, 365.663, 185.628, 346.418, 174.709, 282.269, 174.569, 258.439, 192.33, 241.943, 225.088, 236.444, 308.803, 247.441, 338.499, 272.185, 353.058, 340.919, 356.697, 360.165, 338.499, 371.162, 319.722, 373.911, 283.325)
