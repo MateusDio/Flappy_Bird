@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7vkbnv412vfy"]
+
+[ext_resource type="Texture2D" uid="uid://dg81lvl58ug6c" path="res://assets - flappy bird/assets/bg.png" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://bk1u1tfhc41mr" path="res://scenes/main/main.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://bjitt0iicvi0q" path="res://scenes/pipes/pipes.tscn" id="2_6q06x"]
+[ext_resource type="PackedScene" uid="uid://dhdytnfkhrrmi" path="res://scenes/bird/bird.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://bxjjjsycffh2e" path="res://scenes/ground/ground.tscn" id="4_l3cfh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6q06x"]
+font_size = 32
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_k2fmo")
+pipes_scene = ExtResource("2_6q06x")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(432, 384)
+texture = ExtResource("1_hyk8p")
+
+[node name="bird" parent="." instance=ExtResource("2_iuonh")]
+
+[node name="ground" parent="." instance=ExtResource("4_l3cfh")]
+position = Vector2(-1, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="score" type="Label" parent="."]
+offset_right = 864.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_6q06x")
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="ground" to="ground" method="_on_body_entered"]
+[connection signal="hit" from="ground" to="." method="_on_ground_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

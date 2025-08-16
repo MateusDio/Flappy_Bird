@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhdytnfkhrrmi"]
+
+[ext_resource type="Script" uid="uid://dtgcusc1qejl" path="res://scenes/bird/bird.gd" id="1_1m27c"]
+[ext_resource type="Texture2D" uid="uid://dqe0vy2p81rb8" path="res://assets - flappy bird/assets/sprites/Kirby1.png" id="2_4juht"]
+[ext_resource type="Texture2D" uid="uid://1aqnkctyjf3e" path="res://assets - flappy bird/assets/sprites/Kirby2.png" id="3_jli8k"]
+[ext_resource type="Texture2D" uid="uid://3v546hlfp4v3" path="res://assets - flappy bird/assets/sprites/Kirby3.png" id="4_o64ol"]
+[ext_resource type="Texture2D" uid="uid://yvsh8ksj1sqp" path="res://assets - flappy bird/assets/sprites/Kirby4.png" id="5_g8cl2"]
+[ext_resource type="Texture2D" uid="uid://cqjgxpkkxtb5x" path="res://assets - flappy bird/assets/sprites/Kirby5.png" id="6_lb0a8"]
+[ext_resource type="Texture2D" uid="uid://chanh76hymsid" path="res://assets - flappy bird/assets/sprites/Kirby6.png" id="7_645k2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7sxbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4juht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jli8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o64ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g8cl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lb0a8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_645k2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2s1qb"]
+radius = 13.0379
+height = 28.0685
+
+[node name="bird" type="CharacterBody2D"]
+script = ExtResource("1_1m27c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+sprite_frames = SubResource("SpriteFrames_7sxbh")
+frame_progress = 0.480244
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+rotation = 2.37714
+shape = SubResource("CapsuleShape2D_2s1qb")
